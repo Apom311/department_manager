@@ -206,6 +206,7 @@ const viewAllRoles = () => {
     connection.query(sql, (error, response) => {
         if (error) throw error;
         response.forEach((role) => {console.log(role.title);});
+        console.table(response);
         promptUser();
     });
 };
@@ -264,6 +265,7 @@ const addRole = () => {
                 connection.query(sql, crit, (error) => {
                     if (error) throw error;
                     console.log('Role successfully created!');
+                    viewAllRoles();
                 });
             });
         };
